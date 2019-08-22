@@ -5,7 +5,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "prettier": "prettier --single-quote --no-semi --write",
+    "prettier": "prettier './app/**/*.{ts,tsx}' --single-quote --no-semi --write",
     "eject": "expo eject"
   },
   "lint-staged": {

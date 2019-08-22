@@ -25,7 +25,6 @@ const styles = StyleSheet.create({
     flex: 0.1,
     marginTop: getHeight(30)
   }
-});
-
+})
 
 export default styles

@@ -1,4 +1,3 @@
-
 /*=================== INTERFACES ===============*/
 
 interface ScreenProp {

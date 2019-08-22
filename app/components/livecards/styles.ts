@@ -10,10 +10,10 @@ const styles = StyleSheet.create({
     borderRadius: getWidth(15),
     backgroundColor: '#3353dd',
     paddingVertical: getHeight(20),
-    shadowColor: "#000",
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 3,
+      height: 3
     },
     shadowOpacity: 0.29,
     shadowRadius: 4.65,
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     shadowOffset: {
       width: 0,
-      height: 3,
+      height: 3
     },
     shadowOpacity: 0.29,
     shadowRadius: 4.65,
@@ -52,15 +52,12 @@ const styles = StyleSheet.create({
   },
   score: {
     color: '#c4c6cf',
-    fontSize: getHeight(22),
+    fontSize: getHeight(22)
   },
   imageContainer: {
     opacity: 0.2
   },
-  image: {
-
-  }
-});
-
+  image: {}
+})
 
 export default styles

@@ -1,10 +1,8 @@
 import React from 'react'
 import { Text, View, ScrollView } from 'react-native'
-import Header from  '../../components/header'
+import Header from '../../components/header'
 import LiveMatchCard from '../../components/livecards'
 import styles from './styles'
-
-
 
 const Home = ({ navigation }: ScreenProp) => {
   return (
@@ -19,7 +17,7 @@ const Home = ({ navigation }: ScreenProp) => {
         <LiveMatchCard />
       </ScrollView>
     </View>
-  );
+  )
 }
 
 export default Home

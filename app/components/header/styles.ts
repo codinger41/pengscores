@@ -17,7 +17,6 @@ const styles = StyleSheet.create({
     fontSize: getHeight(20),
     marginTop: getHeight(30)
   }
-});
-
+})
 
 export default styles
