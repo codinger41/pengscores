@@ -50,7 +50,7 @@ const Home = ({ navigation }: ScreenProp) => {
       <ScrollView>
         <View style={styles.titleContainer}>
           <Text style={styles.titleText}>Today</Text>
-          <Text style={styles.titleBody}>Soccer Matches</Text>
+          <Text style={styles.titleBody}>Football Matches</Text>
         </View>
         <ScrollView
           horizontal
