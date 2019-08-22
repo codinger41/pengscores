@@ -6,20 +6,47 @@ import styles from './styles'
 const ICONS = {
   grid: () => (
     <Entypo name="grid" color="#C4C5C9" style={styles.headerIcon} size={29} />
+  ),
+  back: () => (
+    <Entypo
+      name="chevron-left"
+      color="#C4C5C9"
+      style={styles.headerIcon}
+      size={29}
+    />
   )
 }
 
 interface HeaderProps {
   leftIcon: 'grid' | 'back'
+  rightIcon?: string
   title?: string
+  onPressLeft?: Function
+  titleColor?: string
 }
 
-const Header = ({ leftIcon, title }: HeaderProps) => {
+const Header = ({
+  leftIcon,
+  title,
+  rightIcon,
+  onPressLeft,
+  titleColor
+}: HeaderProps) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity>{ICONS[leftIcon]()}</TouchableOpacity>
-      <Text style={styles.titleText}>{title}</Text>
-      <TouchableOpacity>{ICONS[leftIcon]()}</TouchableOpacity>
+      <TouchableOpacity onPress={() => onPressLeft()}>
+        {ICONS[leftIcon]()}
+      </TouchableOpacity>
+      {title && (
+        <Text style={[styles.titleText, titleColor && { color: titleColor }]}>
+          {title}
+        </Text>
+      )}
+      {rightIcon ? (
+        <TouchableOpacity>{ICONS[leftIcon]()}</TouchableOpacity>
+      ) : (
+        <View style={styles.rightIcon} />
+      )}
     </View>
   )
 }

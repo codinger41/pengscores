@@ -2,47 +2,6 @@ import { StyleSheet } from 'react-native'
 import { getHeight, getWidth } from '../../utils/styles'
 
 const styles = StyleSheet.create({
-  container: {
-    marginHorizontal: getWidth(15),
-    paddingHorizontal: getWidth(15),
-    width: getWidth(350),
-    height: getHeight(120),
-    alignSelf: 'center',
-    borderRadius: getWidth(15),
-    justifyContent: 'space-between',
-    backgroundColor: '#FFFFFF',
-    paddingVertical: getHeight(10),
-    marginBottom: getHeight(10),
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 1
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 3,
-    elevation: 3
-  },
-  livePill: {
-    backgroundColor: '#ffffff',
-    width: getWidth(50),
-    height: getHeight(25),
-    borderRadius: getWidth(15),
-    alignItems: 'center',
-    justifyContent: 'center',
-    shadowOffset: {
-      width: 0,
-      height: 3
-    },
-    shadowOpacity: 0.29,
-    shadowRadius: 4.65,
-    elevation: 7
-  },
-  liveText: {
-    color: '#3353dd'
-  },
-  clubs: {
-    marginTop: getHeight(100)
-  },
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -52,8 +11,8 @@ const styles = StyleSheet.create({
   },
   club: {
     color: '#7c7b82',
-    fontSize: getHeight(20),
     fontFamily: 'ubuntu',
+    fontSize: getHeight(20),
     fontWeight: 'bold'
   },
   vs: {
