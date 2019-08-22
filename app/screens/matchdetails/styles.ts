@@ -14,11 +14,13 @@ const styles = StyleSheet.create({
   titleText: {
     fontSize: getHeight(22),
     fontWeight: '500',
+    fontFamily: 'ubuntu',
     color: '#4f525d'
   },
   titleBody: {
     fontSize: getHeight(30),
     fontWeight: '700',
+    fontFamily: 'ubuntu',
     color: '#363944'
   },
   horizontalScroll: {
@@ -37,6 +39,7 @@ const styles = StyleSheet.create({
   upcomingText: {
     fontSize: getHeight(22),
     fontWeight: '500',
+    fontFamily: 'ubuntu',
     color: '#4f525d'
   },
   background: {
@@ -66,12 +69,14 @@ const styles = StyleSheet.create({
   liveText: {
     color: '#3353dd',
     fontWeight: 'bold',
-    fontSize: getHeight(18)
+    fontSize: getHeight(18),
+    fontFamily: 'ubuntu'
   },
   leagueText: {
     color: '#FFFFFF',
     fontWeight: 'bold',
     fontSize: getHeight(20),
+    fontFamily: 'ubuntu',
     marginVertical: getHeight(10)
   },
   weekText: {
@@ -89,6 +94,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: getHeight(40),
     alignSelf: 'center',
+    fontFamily: 'ubuntu',
     marginBottom: getHeight(40)
   },
   column: {
@@ -98,6 +104,7 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontWeight: 'bold',
     fontSize: getHeight(15),
+    fontFamily: 'ubuntu',
     marginVertical: getHeight(10),
     alignSelf: 'center'
   },
@@ -119,12 +126,14 @@ const styles = StyleSheet.create({
     color: '#b1bef0',
     fontWeight: 'bold',
     fontSize: getHeight(17),
+    fontFamily: 'ubuntu',
     width: getWidth(100)
   },
   statValue: {
     color: '#FFFFFF',
     fontWeight: 'bold',
     fontSize: getHeight(15),
+    fontFamily: 'ubuntu',
     alignSelf: 'center'
   },
   modalHeader: {
@@ -132,6 +141,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: getHeight(25),
     marginVertical: getHeight(10),
+    fontFamily: 'ubuntu',
     alignSelf: 'center'
   },
   modal: {
@@ -149,6 +159,7 @@ const styles = StyleSheet.create({
     color: '#7a7980',
     fontWeight: 'bold',
     fontSize: getHeight(15),
+    fontFamily: 'ubuntu',
     marginLeft: getHeight(15)
   }
 })

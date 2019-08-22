@@ -8,7 +8,7 @@ const Navigator = createStackNavigator(
     MatchDetails
   },
   {
-    initialRouteName: 'MatchDetails',
+    initialRouteName: 'Home',
     headerMode: 'none'
   }
 )

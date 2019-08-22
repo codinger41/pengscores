@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
   },
   club: {
     color: '#7c7b82',
+    fontFamily: 'ubuntu',
     fontSize: getHeight(20),
     fontWeight: 'bold'
   },
@@ -20,7 +21,8 @@ const styles = StyleSheet.create({
   },
   score: {
     color: '#c4c6cf',
-    fontSize: getHeight(22)
+    fontSize: getHeight(22),
+    fontFamily: 'ubuntu'
   },
   imageContainer: {
     opacity: 0.2

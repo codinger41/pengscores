@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
   },
   titleText: {
     fontSize: getHeight(20),
+    fontFamily: 'ubuntu',
     marginTop: getHeight(30),
     alignSelf: 'center',
     fontWeight: 'bold'

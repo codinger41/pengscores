@@ -15,12 +15,14 @@ const styles = StyleSheet.create({
   titleText: {
     fontSize: getHeight(22),
     fontWeight: '500',
+    fontFamily: 'ubuntu',
     color: '#4f525d'
   },
   titleBody: {
     fontSize: getHeight(30),
     fontWeight: '700',
-    color: '#363944'
+    color: '#363944',
+    fontFamily: 'ubuntu'
   },
   horizontalScroll: {
     alignItems: 'center',
@@ -38,6 +40,7 @@ const styles = StyleSheet.create({
   upcomingText: {
     fontSize: getHeight(22),
     fontWeight: '500',
+    fontFamily: 'ubuntu',
     color: '#4f525d'
   }
 })
