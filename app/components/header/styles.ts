@@ -3,12 +3,11 @@ import { getHeight, getWidth } from '../../utils/styles'
 
 const styles = StyleSheet.create({
   container: {
-    flex: 0.11,
     paddingHorizontal: getWidth(10),
+    height: getHeight(80),
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: '#F6F7FB'
+    justifyContent: 'space-between'
   },
   headerIcon: {
     marginTop: getHeight(30)
