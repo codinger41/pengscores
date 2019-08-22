@@ -1,15 +1,20 @@
 import React from 'react'
 import { View, TouchableOpacity, Text, ImageBackground } from 'react-native'
-import { ProgressBar, Colors } from 'react-native-paper'
+import { ProgressBar } from 'react-native-paper'
+import { withNavigation } from 'react-navigation'
 import styles from './styles'
 
 const image = require('../../../assets/epl.png')
 
-interface LiveMatchProps {}
+type LiveMatchProps = {} & ScreenProp
 
-const LiveCards = ({  }: LiveMatchProps) => {
+const LiveCards = ({ navigation }: LiveMatchProps) => {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      activeOpacity={0.6}
+      onPress={() => navigation.navigate('MatchDetails')}
+    >
       <ImageBackground
         source={image}
         style={styles.image}
@@ -34,4 +39,4 @@ const LiveCards = ({  }: LiveMatchProps) => {
   )
 }
 
-export default LiveCards
+export default withNavigation(LiveCards)

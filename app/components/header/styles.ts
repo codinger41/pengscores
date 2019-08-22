@@ -14,7 +14,12 @@ const styles = StyleSheet.create({
   },
   titleText: {
     fontSize: getHeight(20),
-    marginTop: getHeight(30)
+    marginTop: getHeight(30),
+    alignSelf: 'center',
+    fontWeight: 'bold'
+  },
+  rightIcon: {
+    width: getWidth(40)
   }
 })
 
