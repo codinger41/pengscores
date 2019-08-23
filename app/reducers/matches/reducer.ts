@@ -5,6 +5,10 @@ export const initialState = {
   upcomingLoading: false,
   liveError: null,
   upcomingError: null,
+  singleMatch: null,
+  singleMatchLoading: false,
+  singleMatchStat: null,
+  singleMatchStatLoading: false,
   league: 'English Premier League'
 }
 
@@ -19,6 +23,18 @@ const MatchesReducer = (state: object = initialState, action: actionType) => {
       return { ...state, liveLoading: true }
     case 'GET_LIVE_MATCHES':
       return { ...state, live: action.data, liveLoading: false }
+    case 'SINGLE_MATCH_LOADING':
+      return { ...state, singleMatchLoading: true }
+    case 'GET_SINGLE_MATCH':
+      return { ...state, singleMatch: action.data, singleMatchLoading: false }
+    case 'SINGLE_MATCH_STAT_LOADING':
+      return { ...state, singleMatchStatLoading: false }
+    case 'GET_SINGLE_MATCH_STAT':
+      return {
+        ...state,
+        singleMatchStat: action.data,
+        singleMatchStatLoading: false
+      }
     default:
       return state
   }

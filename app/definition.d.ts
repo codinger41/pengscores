@@ -9,6 +9,7 @@ interface ScreenProp {
     state: {
       routeName: string
       key: string
+      params: any
     }
   }
 }

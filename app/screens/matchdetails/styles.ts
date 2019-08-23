@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
   stats: {
     width: getWidth(330),
     marginTop: getHeight(20),
-    height: getHeight(110),
+    height: getHeight(230),
     borderRadius: getWidth(20),
     backgroundColor: '#3e5bde'
   },
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
   statDesc: {
     color: '#b1bef0',
     fontWeight: 'bold',
-    fontSize: getHeight(17),
+    fontSize: getHeight(15),
     fontFamily: 'ubuntu',
     width: getWidth(100)
   },

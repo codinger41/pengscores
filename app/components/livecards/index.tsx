@@ -15,12 +15,18 @@ const getFirstWord = (words: string) => {
   return words.split(' ')[0]
 }
 
+const getMatchProgress = (elapsed: string) => {
+  return Number(elapsed) / 90
+}
+
 const LiveCards = ({ navigation, match }: LiveMatchProps) => {
   return (
     <TouchableOpacity
       style={styles.container}
       activeOpacity={0.6}
-      onPress={() => navigation.navigate('MatchDetails')}
+      onPress={() =>
+        navigation.navigate('MatchDetails', { fixtureId: match.fixture_id })
+      }
     >
       <ImageBackground
         source={image}
@@ -44,7 +50,10 @@ const LiveCards = ({ navigation, match }: LiveMatchProps) => {
             <Text style={styles.score}>{match.goalsAwayTeam}</Text>
           </View>
         </View>
-        <ProgressBar progress={0.5} color="#1fef4c" />
+        <ProgressBar
+          progress={getMatchProgress(match.elapsed)}
+          color="#1fef4c"
+        />
       </ImageBackground>
     </TouchableOpacity>
   )

@@ -1,16 +1,34 @@
-import React from 'react'
-import { Text, View, ScrollView, ImageBackground, Image } from 'react-native'
+import React, { useEffect, useContext } from 'react'
+import { Text, View, ImageBackground, Image } from 'react-native'
 import Modalize from 'react-native-modalize'
+import { ActivityIndicator } from 'react-native-paper'
 import Header from '../../components/header'
 import Odds from '../../components/odds'
+import MatchContext from '../../contexts/matches'
 import styles from './styles'
 import { getHeight } from '../../utils/styles'
 
 const background = require('../../../assets/epl.png')
-const manchester_united = require('../../../assets/manchester-united.png')
-const barcelona = require('../../../assets/barcelona.png')
 
 const Home = ({ navigation }: ScreenProp) => {
+  const context: any = useContext(MatchContext)
+  const {
+    state: {
+      params: { fixtureId }
+    }
+  } = navigation
+
+  const {
+    matchesReducer: { singleMatch, singleMatchStat, singleMatchLoading },
+    getMatchDetails,
+    getMatchStat
+  } = context
+
+  useEffect(() => {
+    getMatchDetails(fixtureId)
+    getMatchStat(fixtureId)
+  }, [fixtureId])
+
   return (
     <View style={styles.container}>
       <Header
@@ -24,42 +42,121 @@ const Home = ({ navigation }: ScreenProp) => {
         style={styles.imgbackground}
         imageStyle={styles.background}
       >
-        <View style={styles.livePill}>
-          <Text style={styles.liveText}>LIVE 39'</Text>
-        </View>
-        <Text style={styles.leagueText}>English Premier League</Text>
-        <Text style={styles.weekText}>Week 20</Text>
-        <View style={styles.row}>
-          <View style={styles.column}>
-            <Image style={styles.logo} source={manchester_united} />
-            <Text style={styles.clubText}>Man United</Text>
+        {singleMatchLoading || !singleMatch ? (
+          <ActivityIndicator
+            color="#ffffff"
+            size="large"
+            style={{ alignSelf: 'center' }}
+          />
+        ) : (
+          <View style={styles.imgbackground}>
+            <View style={styles.livePill}>
+              <Text style={styles.liveText}>LIVE {singleMatch.elapsed}'</Text>
+            </View>
+            <Text style={styles.leagueText}>{singleMatch.round}</Text>
+            <Text style={styles.weekText}>{singleMatch.status}</Text>
+            <View style={styles.row}>
+              <View style={styles.column}>
+                <Image
+                  style={styles.logo}
+                  source={{ uri: singleMatch.homeTeam.logo }}
+                />
+                <Text style={styles.clubText}>
+                  {singleMatch.homeTeam.team_name}
+                </Text>
+              </View>
+              <Text style={styles.scores}>
+                {singleMatch.goalsHomeTeam} : {singleMatch.goalsAwayTeam}
+              </Text>
+              <View style={styles.column}>
+                <Image
+                  style={styles.logo}
+                  source={{ uri: singleMatch.awayTeam.logo }}
+                />
+                <Text style={styles.clubText}>
+                  {singleMatch.awayTeam.team_name}
+                </Text>
+              </View>
+            </View>
+            <View style={styles.stats}>
+              <View style={styles.statsRow}>
+                <Text style={styles.statValue}>
+                  {singleMatchStat['Ball Possession']['home']}
+                </Text>
+                <Text style={styles.statDesc}>Possession</Text>
+                <Text style={styles.statValue}>
+                  {singleMatchStat['Ball Possession']['away']}
+                </Text>
+              </View>
+              <View style={styles.statsRow}>
+                <Text style={styles.statValue}>
+                  {singleMatchStat['Total Shots']['home']}
+                </Text>
+                <Text style={styles.statDesc}>Shots</Text>
+                <Text style={styles.statValue}>
+                  {singleMatchStat['Total Shots']['away']}
+                </Text>
+              </View>
+              <View style={styles.statsRow}>
+                <Text style={styles.statValue}>
+                  {singleMatchStat['Total Shots']['home']}
+                </Text>
+                <Text style={styles.statDesc}>Shots on Goal</Text>
+                <Text style={styles.statValue}>
+                  {singleMatchStat['Total Shots']['away']}
+                </Text>
+              </View>
+              <View style={styles.statsRow}>
+                <Text style={styles.statValue}>
+                  {singleMatchStat['Passes %']['home']}
+                </Text>
+                <Text style={styles.statDesc}>Passes</Text>
+                <Text style={styles.statValue}>
+                  {singleMatchStat['Passes %']['away']}
+                </Text>
+              </View>
+              <View style={styles.statsRow}>
+                <Text style={styles.statValue}>
+                  {singleMatchStat['Fouls']['home']}
+                </Text>
+                <Text style={styles.statDesc}>Fouls</Text>
+                <Text style={styles.statValue}>
+                  {singleMatchStat['Fouls']['away']}
+                </Text>
+              </View>
+              <View style={styles.statsRow}>
+                <Text style={styles.statValue}>
+                  {singleMatchStat['Yellow Cards']['home']}
+                </Text>
+                <Text style={styles.statDesc}>Yellow Cards</Text>
+                <Text style={styles.statValue}>
+                  {singleMatchStat['Yellow Cards']['away']}
+                </Text>
+              </View>
+              <View style={styles.statsRow}>
+                <Text style={styles.statValue}>
+                  {singleMatchStat['Goalkeeper Saves']['home']}
+                </Text>
+                <Text style={styles.statDesc}>Saves</Text>
+                <Text style={styles.statValue}>
+                  {singleMatchStat['Goalkeeper Saves']['away']}
+                </Text>
+              </View>
+              <View style={styles.statsRow}>
+                <Text style={styles.statValue}>
+                  {singleMatchStat['Offsides']['home']}
+                </Text>
+                <Text style={styles.statDesc}>Offsides</Text>
+                <Text style={styles.statValue}>
+                  {singleMatchStat['Offsides']['away']}
+                </Text>
+              </View>
+            </View>
           </View>
-          <Text style={styles.scores}>3 : 1</Text>
-          <View style={styles.column}>
-            <Image style={styles.logo} source={barcelona} />
-            <Text style={styles.clubText}>barcelona</Text>
-          </View>
-        </View>
-        <View style={styles.stats}>
-          <View style={styles.statsRow}>
-            <Text style={styles.statValue}>90</Text>
-            <Text style={styles.statDesc}>Possession</Text>
-            <Text style={styles.statValue}>10</Text>
-          </View>
-          <View style={styles.statsRow}>
-            <Text style={styles.statValue}>900</Text>
-            <Text style={styles.statDesc}>Shots</Text>
-            <Text style={styles.statValue}>2</Text>
-          </View>
-          <View style={styles.statsRow}>
-            <Text style={styles.statValue}>542</Text>
-            <Text style={styles.statDesc}>Passes</Text>
-            <Text style={styles.statValue}>5</Text>
-          </View>
-        </View>
+        )}
       </ImageBackground>
       <Modalize
-        alwaysOpen={getHeight(300)}
+        alwaysOpen={getHeight(210)}
         HeaderComponent={() => (
           <Text style={styles.modalHeader}>Match Results</Text>
         )}
