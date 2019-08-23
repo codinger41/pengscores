@@ -10,7 +10,8 @@ const styles = StyleSheet.create({
       },
       android: {
         height: getHeight(70),
-        alignItems: 'center'
+        alignItems: 'center',
+        paddingHorizontal: getWidth(10)
       }
     }),
     flexDirection: 'row',

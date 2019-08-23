@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginVertical: getHeight(2),
     alignSelf: 'center',
-    width: getWidth(200)
+    width: getWidth(250)
   },
   club: {
     color: '#7c7b82',

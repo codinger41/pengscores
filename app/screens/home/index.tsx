@@ -6,44 +6,6 @@ import LiveMatchCard from '../../components/livecards'
 import MatchCard from '../../components/matchcard'
 import styles from './styles'
 
-const LiveMatches = [
-  {
-    club1: { name: 'Juventus', score: 1 },
-    club2: { name: 'Juventus', score: 1 }
-  },
-  {
-    club1: { name: 'Juventus', score: 1 },
-    club2: { name: 'Juventus', score: 1 }
-  },
-  {
-    club1: { name: 'Juventus', score: 1 },
-    club2: { name: 'Juventus', score: 1 }
-  },
-  {
-    club1: { name: 'Juventus', score: 1 },
-    club2: { name: 'Juventus', score: 1 }
-  }
-]
-
-const UpcomingMatches = [
-  {
-    club1: { name: 'Juventus', score: 1 },
-    club2: { name: 'Juventus', score: 1 }
-  },
-  {
-    club1: { name: 'Juventus', score: 1 },
-    club2: { name: 'Juventus', score: 1 }
-  },
-  {
-    club1: { name: 'Juventus', score: 1 },
-    club2: { name: 'Juventus', score: 1 }
-  },
-  {
-    club1: { name: 'Juventus', score: 1 },
-    club2: { name: 'Juventus', score: 1 }
-  }
-]
-
 const Home = ({ navigation }: ScreenProp) => {
   const context: any = useContext(MatchesContext)
 
@@ -52,7 +14,7 @@ const Home = ({ navigation }: ScreenProp) => {
   }, [])
 
   const {
-    matchesReducer: { live, liveLoading }
+    matchesReducer: { live, liveLoading, upcoming }
   } = context
   return (
     <View style={styles.container}>
@@ -81,9 +43,14 @@ const Home = ({ navigation }: ScreenProp) => {
           <View style={styles.row}>
             <Text style={styles.upcomingText}>Upcoming Matches</Text>
           </View>
-          {UpcomingMatches.map(() => (
-            <MatchCard key={Math.random()} />
-          ))}
+          {live &&
+            live.map(match => (
+              <MatchCard
+                navigation={navigation}
+                key={match.fixture_id}
+                match={match}
+              />
+            ))}
         </ScrollView>
       </ScrollView>
     </View>

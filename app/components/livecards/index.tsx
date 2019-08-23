@@ -2,6 +2,7 @@ import React from 'react'
 import { View, TouchableOpacity, Text, ImageBackground } from 'react-native'
 import { ProgressBar } from 'react-native-paper'
 import { withNavigation } from 'react-navigation'
+import { getFirstWord, getMatchProgress } from '../../utils/helpers'
 import styles from './styles'
 
 const image = require('../../../assets/epl.png')
@@ -10,14 +11,6 @@ type LiveMatchProps = {
   match: any
   key: number
 } & ScreenProp
-
-const getFirstWord = (words: string) => {
-  return words.split(' ')[0]
-}
-
-const getMatchProgress = (elapsed: string) => {
-  return Number(elapsed) / 90
-}
 
 const LiveCards = ({ navigation, match }: LiveMatchProps) => {
   return (
