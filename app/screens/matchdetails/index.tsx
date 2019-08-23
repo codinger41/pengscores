@@ -4,6 +4,7 @@ import Modalize from 'react-native-modalize'
 import { ActivityIndicator } from 'react-native-paper'
 import Header from '../../components/header'
 import Odds from '../../components/odds'
+import HighLights from '../../components/highlights'
 import MatchContext from '../../contexts/matches'
 import styles from './styles'
 import { getHeight } from '../../utils/styles'
@@ -163,15 +164,11 @@ const Home = ({ navigation }: ScreenProp) => {
         modalStyle={styles.modal}
       >
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Scorers</Text>
-          <Text style={styles.sectionValue}>1. Rashford 10'</Text>
-          <Text style={styles.sectionValue}>2. Rashford 12'</Text>
-          <Text style={styles.sectionValue}>3. Rashford 13'</Text>
-          <Text style={styles.sectionValue}>4. Messi 90'</Text>
-        </View>
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Odds</Text>
-          <Odds />
+          <Text style={styles.sectionTitle}>Highlights</Text>
+          <HighLights
+            home={singleMatch.homeTeam.team_name}
+            away={singleMatch.awayTeam.team_name}
+          />
         </View>
       </Modalize>
     </View>

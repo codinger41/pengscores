@@ -144,23 +144,17 @@ const styles = StyleSheet.create({
     fontFamily: 'ubuntu',
     alignSelf: 'center'
   },
-  modal: {
-    paddingHorizontal: getWidth(15)
-  },
+  modal: {},
   section: {
-    marginVertical: getHeight(15)
+    // marginVertical: getHeight(15)
   },
   sectionTitle: {
     color: '#000000',
-    fontWeight: 'bold',
-    fontSize: getHeight(17)
-  },
-  sectionValue: {
-    color: '#7a7980',
-    fontWeight: 'bold',
-    fontSize: getHeight(15),
+    marginLeft: getWidth(15),
     fontFamily: 'ubuntu',
-    marginLeft: getHeight(15)
+    marginVertical: getHeight(10),
+    fontWeight: 'bold',
+    fontSize: getHeight(19)
   }
 })
 
