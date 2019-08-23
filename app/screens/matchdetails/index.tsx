@@ -20,14 +20,22 @@ const Home = ({ navigation }: ScreenProp) => {
   } = navigation
 
   const {
-    matchesReducer: { singleMatch, singleMatchStat, singleMatchLoading },
+    matchesReducer: {
+      singleMatch,
+      singleMatchStat,
+      singleMatchLoading,
+      singleMatchEvents,
+      singleMatchEventsLoading
+    },
     getMatchDetails,
-    getMatchStat
+    getMatchStat,
+    getMatchEvents
   } = context
 
   useEffect(() => {
     getMatchDetails(fixtureId)
     getMatchStat(fixtureId)
+    getMatchEvents(fixtureId)
   }, [fixtureId])
 
   return (
@@ -165,10 +173,13 @@ const Home = ({ navigation }: ScreenProp) => {
       >
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Highlights</Text>
-          <HighLights
-            home={singleMatch.homeTeam.team_name}
-            away={singleMatch.awayTeam.team_name}
-          />
+          {singleMatch && (
+            <HighLights
+              home={singleMatch.homeTeam.team_name}
+              away={singleMatch.awayTeam.team_name}
+              events={singleMatchEvents}
+            />
+          )}
         </View>
       </Modalize>
     </View>

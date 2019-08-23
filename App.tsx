@@ -4,7 +4,7 @@ import * as Font from 'expo-font'
 import Navigation from './app/navigator'
 import MatchesContext from './app/contexts/matches'
 import combined from './app/reducers'
-import { getLiveMatches, getSingleMatch, getSingleMatchStats } from './app/actions/matches'
+import { getLiveMatches, getSingleMatch, getSingleMatchStats, getSingleMatchEvents } from './app/actions/matches'
 import { initialState } from './app/utils/constants'
 
 export default function App() {
@@ -26,7 +26,8 @@ export default function App() {
         ...state,
         getLiveMatches: getLiveMatches.bind(null, dispatch),
         getMatchDetails: getSingleMatch.bind(null, dispatch),
-        getMatchStat: getSingleMatchStats.bind(null, dispatch)
+        getMatchStat: getSingleMatchStats.bind(null, dispatch),
+        getMatchEvents: getSingleMatchEvents.bind(null, dispatch)
       }}>
       <Navigation />
     </MatchesContext.Provider>

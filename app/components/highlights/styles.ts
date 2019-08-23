@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
     height: getHeight(40),
     backgroundColor: '#ffffff',
     alignItems: 'center',
+    marginVertical: getHeight(5),
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingHorizontal: getWidth(10)
@@ -30,7 +31,7 @@ const styles = StyleSheet.create({
   eventCardAway: {
     width: getWidth(160),
     height: getHeight(40),
-    marginVertical: getHeight(10),
+    marginVertical: getHeight(5),
     marginLeft: getWidth(175),
     backgroundColor: '#ffffff',
     alignItems: 'center',

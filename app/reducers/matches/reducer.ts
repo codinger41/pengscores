@@ -9,6 +9,8 @@ export const initialState = {
   singleMatchLoading: false,
   singleMatchStat: null,
   singleMatchStatLoading: false,
+  singleMatchEvents: null,
+  singleMatchEventsLoading: false,
   league: 'English Premier League'
 }
 
@@ -34,6 +36,14 @@ const MatchesReducer = (state: object = initialState, action: actionType) => {
         ...state,
         singleMatchStat: action.data,
         singleMatchStatLoading: false
+      }
+    case 'SINGLE_MATCH_EVENTS_LOADING':
+      return { ...state, singleMatchEventsLoading: false }
+    case 'GET_SINGLE_MATCH_EVENTS':
+      return {
+        ...state,
+        singleMatchEvents: action.data,
+        singleMatchEventsLoading: false
       }
     default:
       return state

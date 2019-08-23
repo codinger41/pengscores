@@ -132,6 +132,126 @@ const singleMatchStat = {
   }
 }
 
+const singleMatchEvents = [
+  {
+    elapsed: 46,
+    team_id: 84,
+    teamName: 'Philadelphia Union',
+    player_id: 22177,
+    player: 'Igniatius Ganago',
+    type: 'Goal',
+    detail: 'Normal Goal'
+  },
+  {
+    elapsed: 54,
+    team_id: 85,
+    teamName: 'Orlando City SC',
+    player_id: 273,
+    player: 'Marco Verratti',
+    type: 'Card',
+    detail: 'Yellow Card'
+  },
+  {
+    elapsed: 60,
+    team_id: 85,
+    teamName: 'Orlando City SC',
+    player_id: 276,
+    player: 'Neymar',
+    type: 'Goal',
+    detail: 'Penalty'
+  },
+  {
+    elapsed: 61,
+    team_id: 84,
+    teamName: 'Philadelphia Union',
+    player_id: 22177,
+    player: 'Igniatius Ganago',
+    type: 'subst',
+    detail: 'Jean-Victor Makengo'
+  },
+  {
+    elapsed: 66,
+    team_id: 85,
+    teamName: 'Orlando City SC',
+    player_id: 271,
+    player: 'Leandro Paredes',
+    type: 'subst',
+    detail: 'Layvin Kurzawa'
+  },
+  {
+    elapsed: 66,
+    team_id: 85,
+    teamName: 'Orlando City SC',
+    player_id: 267,
+    player: 'Julian Draxler',
+    type: 'subst',
+    detail: 'Moussa Diaby'
+  },
+  {
+    elapsed: 69,
+    team_id: 84,
+    teamName: 'Philadelphia Union',
+    player_id: 3165,
+    player: 'Youcef Atal',
+    type: 'Card',
+    detail: 'Yellow Card'
+  },
+  {
+    elapsed: 75,
+    team_id: 84,
+    teamName: 'Philadelphia Union',
+    player_id: 22173,
+    player: 'Allan Saint-Maximin',
+    type: 'subst',
+    detail: 'Mickaël Le Bihan'
+  },
+  {
+    elapsed: 89,
+    team_id: 84,
+    teamName: 'Swope Park Rangers',
+    player_id: 22161,
+    player: 'Patrick Burner',
+    type: 'subst',
+    detail: 'Bassem Srarfi'
+  },
+  {
+    elapsed: 90,
+    team_id: 84,
+    teamName: 'Swope Park Rangers',
+    player_id: 22163,
+    player: 'Dante',
+    type: 'Card',
+    detail: 'Yellow Card'
+  },
+  {
+    elapsed: 90,
+    team_id: 84,
+    teamName: 'Philadelphia Union',
+    player_id: 22164,
+    player: 'Christophe Herelle',
+    type: 'Card',
+    detail: 'Yellow Card'
+  },
+  {
+    elapsed: 90,
+    team_id: 85,
+    teamName: 'Orlando City SC',
+    player_id: 274,
+    player: 'Edinson Cavani',
+    type: 'Card',
+    detail: 'Yellow Card'
+  },
+  {
+    elapsed: 90,
+    team_id: 85,
+    teamName: 'Orlando City SC',
+    player_id: 274,
+    player: 'Edinson Cavani',
+    type: 'Goal',
+    detail: 'Missed Penalty'
+  }
+]
+
 export const getLiveMatches = async (dispatch: Function) => {
   dispatch({ type: 'LIVE_MATCHES_LOADING' })
   return dispatch({
@@ -159,5 +279,16 @@ export const getSingleMatchStats = async (
   return dispatch({
     type: 'GET_SINGLE_MATCH_STAT',
     data: singleMatchStat
+  })
+}
+
+export const getSingleMatchEvents = async (
+  dispatch: Function,
+  fixture_id: number
+) => {
+  dispatch({ type: 'SINGLE_MATCH_EVENTS_LOADING' })
+  return dispatch({
+    type: 'GET_SINGLE_MATCH_EVENTS',
+    data: singleMatchEvents
   })
 }
