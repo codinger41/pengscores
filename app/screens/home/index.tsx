@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Text, View, ScrollView } from 'react-native'
 import Header from '../../components/header'
+import MatchesContext from '../../contexts/matches'
 import LiveMatchCard from '../../components/livecards'
 import MatchCard from '../../components/matchcard'
 import styles from './styles'
@@ -44,6 +45,15 @@ const UpcomingMatches = [
 ]
 
 const Home = ({ navigation }: ScreenProp) => {
+  const context: any = useContext(MatchesContext)
+
+  useEffect(() => {
+    context.getLiveMatches()
+  }, [])
+
+  const {
+    matchesReducer: { live, liveLoading }
+  } = context
   return (
     <View style={styles.container}>
       <Header title="Home" leftIcon="grid" />
@@ -58,9 +68,14 @@ const Home = ({ navigation }: ScreenProp) => {
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={styles.horizontalScroll}
         >
-          {LiveMatches.map(() => (
-            <LiveMatchCard key={Math.random()} />
-          ))}
+          {live &&
+            live.map(match => (
+              <LiveMatchCard
+                navigation={navigation}
+                key={match.fixture_id}
+                match={match}
+              />
+            ))}
         </ScrollView>
         <ScrollView contentContainerStyle={styles.upcomingmatches}>
           <View style={styles.row}>

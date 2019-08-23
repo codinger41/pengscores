@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   },
   club: {
     color: '#FFFFFF',
-    fontSize: getHeight(22),
+    fontSize: getHeight(18),
     fontFamily: 'ubuntu',
     fontWeight: 'bold'
   },

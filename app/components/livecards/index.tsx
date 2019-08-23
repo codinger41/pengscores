@@ -6,9 +6,16 @@ import styles from './styles'
 
 const image = require('../../../assets/epl.png')
 
-type LiveMatchProps = {} & ScreenProp
+type LiveMatchProps = {
+  match: any
+  key: number
+} & ScreenProp
 
-const LiveCards = ({ navigation }: LiveMatchProps) => {
+const getFirstWord = (words: string) => {
+  return words.split(' ')[0]
+}
+
+const LiveCards = ({ navigation, match }: LiveMatchProps) => {
   return (
     <TouchableOpacity
       style={styles.container}
@@ -25,12 +32,16 @@ const LiveCards = ({ navigation }: LiveMatchProps) => {
         </View>
         <View style={styles.clubs}>
           <View style={styles.row}>
-            <Text style={styles.club}>Juventus</Text>
-            <Text style={styles.score}>2</Text>
+            <Text style={styles.club}>
+              {getFirstWord(match.homeTeam.team_name)}
+            </Text>
+            <Text style={styles.score}>{match.goalsHomeTeam}</Text>
           </View>
           <View style={styles.row}>
-            <Text style={styles.club}>Chelsea</Text>
-            <Text style={styles.score}>0</Text>
+            <Text style={styles.club}>
+              {getFirstWord(match.awayTeam.team_name)}
+            </Text>
+            <Text style={styles.score}>{match.goalsAwayTeam}</Text>
           </View>
         </View>
         <ProgressBar progress={0.5} color="#1fef4c" />
