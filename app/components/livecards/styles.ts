@@ -3,7 +3,8 @@ import { getHeight, getWidth } from '../../utils/styles'
 
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: getWidth(15),
+    marginLeft: getWidth(10),
+    marginRight: getWidth(5),
     paddingHorizontal: getWidth(15),
     width: getWidth(160),
     height: getHeight(250),
