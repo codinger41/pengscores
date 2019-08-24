@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Platform } from 'react-native'
 import { getHeight, getWidth } from '../../utils/styles'
 
 const styles = StyleSheet.create({
@@ -114,14 +114,24 @@ const styles = StyleSheet.create({
     marginVertical: getHeight(10),
     alignSelf: 'center'
   },
+  banner: {
+    marginTop: getHeight(260)
+  },
   stats: {
     width: getWidth(330),
-    marginTop: getHeight(20),
-    height: getHeight(235),
+    height: getHeight(240),
     borderRadius: getWidth(20),
     alignItems: 'center',
-    paddingVertical: getHeight(5),
-    backgroundColor: '#3e5bde'
+    backgroundColor: '#3e5bde',
+    ...Platform.select({
+      ios: {
+        marginTop: getHeight(20),
+        paddingVertical: getHeight(5)
+      },
+      android: {
+        paddingBottom: getHeight(10)
+      }
+    })
   },
   statsRow: {
     flexDirection: 'row',

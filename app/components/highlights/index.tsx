@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, ScrollView, Text, Image } from 'react-native'
 import { getFirstWord } from '../../utils/helpers'
+import Banner from '../admob'
 import styles from './styles'
 
 type HighlightsProps = {
@@ -29,10 +30,8 @@ const HighLights = ({ home, away, events }: HighlightsProps) => {
   return (
     <ScrollView style={styles.container}>
       {events &&
-        events.map(event => (
-          <React.Fragment
-            key={`${event.teamName}${event.detail}${event.player}`}
-          >
+        events.map((event, index) => (
+          <React.Fragment key={index}>
             {event.teamName === home && (
               <View style={styles.eventCardHome}>
                 <Image

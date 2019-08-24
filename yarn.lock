@@ -2091,6 +2091,13 @@ expand-range@^1.8.1:
   dependencies:
     fill-range "^2.1.0"
 
+expo-ads-admob@~6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/expo-ads-admob/-/expo-ads-admob-6.0.0.tgz#4be97a6e8890e13a1c90f3243719ef0a54937d48"
+  integrity sha512-luNhJSQC6px/RC/lODmmT0nmJnKjQhG2Cg9gjuauEnbUWLX66euoemtMMAwOC8qDFJPGqERPqSSU1JG+a2h8xw==
+  dependencies:
+    prop-types "^15.6.2"
+
 expo-app-loader-provider@~6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/expo-app-loader-provider/-/expo-app-loader-provider-6.0.0.tgz#c187a39942ac27cfaec3b394a5c9851d3f39678b"

@@ -11,6 +11,14 @@ type MatchCardProps = {
 } & ScreenProp
 
 const MatchCard = ({ navigation, match }: MatchCardProps) => {
+  let matchHasNotStarted
+  if (match) {
+    if (match.status === 'Not Started') {
+      matchHasNotStarted = true
+    } else if (match.status === 'Time To Be Defined') {
+      matchHasNotStarted = true
+    }
+  }
   return (
     <TouchableOpacity
       style={styles.container}
@@ -27,7 +35,12 @@ const MatchCard = ({ navigation, match }: MatchCardProps) => {
             {getFirstWord(match.homeTeam.team_name)}
           </Text>
         </View>
-        <Text style={styles.vs}>VS</Text>
+        {matchHasNotStarted && <Text style={styles.vs}>VS</Text>}
+        {!matchHasNotStarted && (
+          <Text style={styles.score}>
+            {match.goalsHomeTeam} : {match.goalsAwayTeam}
+          </Text>
+        )}
         <View style={styles.column}>
           <Image style={styles.logo} source={{ uri: match.awayTeam.logo }} />
           <Text style={styles.club}>

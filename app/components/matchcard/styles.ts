@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
   container: {
     marginHorizontal: getWidth(15),
     paddingHorizontal: getWidth(15),
-    width: getWidth(350),
+    width: getWidth(340),
     height: getHeight(130),
     alignSelf: 'center',
     borderRadius: getWidth(15),
@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginVertical: getHeight(2),
+    marginRight: getWidth(25),
     alignSelf: 'center',
     width: getWidth(250)
   },
@@ -70,12 +71,13 @@ const styles = StyleSheet.create({
   },
   vs: {
     color: '#c6c6c8',
-    marginTop: getHeight(5)
+    marginTop: getHeight(20)
   },
   score: {
-    color: '#c4c6cf',
+    color: '#7c7b82',
     fontSize: getHeight(22),
-    fontFamily: 'ubuntu'
+    fontFamily: 'ubuntu',
+    marginTop: getHeight(20)
   },
   imageContainer: {
     opacity: 0.2

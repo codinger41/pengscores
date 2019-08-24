@@ -6,6 +6,7 @@ import MatchesContext from '../../contexts/matches'
 import LiveMatchCard from '../../components/livecards'
 import MatchCard from '../../components/matchcard'
 import Leagues from '../../components/leagues'
+import Banner from '../../components/admob'
 import styles from './styles'
 
 const Home = ({ navigation }: ScreenProp) => {
@@ -21,7 +22,8 @@ const Home = ({ navigation }: ScreenProp) => {
 
   return (
     <View style={styles.container}>
-      <Header title="Home" leftIcon="grid" />
+      <Header title="Home" leftIcon="grid" onPressLeft={() => {}} />
+      <Banner />
       <ScrollView>
         <View style={styles.titleContainer}>
           <Text style={styles.titleText}>Today</Text>
@@ -67,7 +69,7 @@ const Home = ({ navigation }: ScreenProp) => {
               data={upcoming}
               keyExtractor={(i, t) => t.toString()}
               removeClippedSubviews
-              renderItem={({ item, index }) => (
+              renderItem={({ item }) => (
                 <MatchCard navigation={navigation} match={item} />
               )}
             />

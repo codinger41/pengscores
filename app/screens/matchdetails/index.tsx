@@ -5,6 +5,7 @@ import { ActivityIndicator } from 'react-native-paper'
 import Header from '../../components/header'
 import HighLights from '../../components/highlights'
 import Stats from '../../components/stats'
+import Banner from '../../components/admob'
 import MatchContext from '../../contexts/matches'
 import styles from './styles'
 import { getHeight } from '../../utils/styles'
@@ -40,12 +41,15 @@ const Home = ({ navigation }: ScreenProp) => {
   }, [fixtureId])
 
   let matchHasNotStarted
+  let matchHasFinished
 
   if (singleMatch) {
     if (singleMatch.status === 'Not Started') {
       matchHasNotStarted = true
     } else if (singleMatch.status === 'Time To Be Defined') {
       matchHasNotStarted = true
+    } else if (singleMatch.status === 'Match Finished') {
+      matchHasFinished = true
     }
   }
 
@@ -70,7 +74,7 @@ const Home = ({ navigation }: ScreenProp) => {
           />
         ) : (
           <View style={styles.imgbackground}>
-            {!matchHasNotStarted && (
+            {!matchHasNotStarted && !matchHasFinished && (
               <View style={styles.livePill}>
                 <Text style={styles.liveText}>LIVE {singleMatch.elapsed}'</Text>
               </View>
@@ -113,8 +117,9 @@ const Home = ({ navigation }: ScreenProp) => {
           </View>
         )}
       </ImageBackground>
+      <Banner style={styles.banner} />
       <Modalize
-        alwaysOpen={getHeight(210)}
+        alwaysOpen={getHeight(190)}
         HeaderComponent={() => (
           <Text style={styles.modalHeader}>Match Results</Text>
         )}

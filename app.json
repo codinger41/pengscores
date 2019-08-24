@@ -26,6 +26,9 @@
     "ios": {
       "supportsTablet": true
     },
+    "android": {
+      "package": "com.olamilekan.footbally"
+    },
     "androidStatusBar": {
       "barStyle": "light-content",
       "backgroundColor": "#3353dd"

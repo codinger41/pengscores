@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
   titleContainer: {
     paddingHorizontal: getWidth(15),
     paddingVertical: getHeight(10),
+    marginTop: getHeight(28),
     height: getHeight(80)
   },
   titleText: {

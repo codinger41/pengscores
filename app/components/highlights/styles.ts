@@ -3,11 +3,23 @@ import { getHeight, getWidth } from '../../utils/styles'
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: getWidth(15),
+    // paddingHorizontal: getWidth(10),
     alignSelf: 'center',
     width: getWidth(365),
     borderRadius: getWidth(15),
-    paddingVertical: getHeight(20),
+    backgroundColor: 'transparent',
+    paddingVertical: getHeight(20)
+  },
+  eventCardHome: {
+    width: getWidth(160),
+    height: getHeight(40),
+    backgroundColor: '#ffffff',
+    alignItems: 'center',
+    marginVertical: getHeight(5),
+    marginLeft: getWidth(10),
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: getWidth(10),
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -17,26 +29,24 @@ const styles = StyleSheet.create({
     shadowRadius: 1.65,
     elevation: 2
   },
-  eventCardHome: {
-    width: getWidth(160),
-    height: getHeight(40),
-    backgroundColor: '#ffffff',
-    alignItems: 'center',
-    marginVertical: getHeight(5),
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: getWidth(10)
-  },
   eventCardAway: {
     width: getWidth(160),
     height: getHeight(40),
     marginVertical: getHeight(5),
-    marginLeft: getWidth(175),
+    marginLeft: getWidth(190),
     backgroundColor: '#ffffff',
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingHorizontal: getWidth(10)
+    paddingHorizontal: getWidth(10),
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1
+    },
+    shadowOpacity: 0.29,
+    shadowRadius: 1.65,
+    elevation: 2
   },
   clubs: {
     marginTop: getHeight(100)
