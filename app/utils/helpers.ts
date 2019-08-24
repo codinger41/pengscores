@@ -1,5 +1,5 @@
 export const getFirstWord = (words: string) => {
-  return words.split(' ')[0]
+  return words.split(' ').sort((a, b) => b.length > a.length)[0]
 }
 
 export const getMatchProgress = (elapsed: string) => {

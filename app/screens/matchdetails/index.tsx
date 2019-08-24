@@ -90,74 +90,98 @@ const Home = ({ navigation }: ScreenProp) => {
             <View style={styles.stats}>
               <View style={styles.statsRow}>
                 <Text style={styles.statValue}>
-                  {singleMatchStat['Ball Possession']['home']}
+                  {(singleMatchStat &&
+                    singleMatchStat['Ball Possession']['home']) ||
+                    0}
                 </Text>
                 <Text style={styles.statDesc}>Possession</Text>
                 <Text style={styles.statValue}>
-                  {singleMatchStat['Ball Possession']['away']}
+                  {(singleMatchStat &&
+                    singleMatchStat['Ball Possession']['away']) ||
+                    0}
                 </Text>
               </View>
               <View style={styles.statsRow}>
                 <Text style={styles.statValue}>
-                  {singleMatchStat['Total Shots']['home']}
+                  {(singleMatchStat &&
+                    singleMatchStat['Total Shots']['home']) ||
+                    0}
                 </Text>
                 <Text style={styles.statDesc}>Shots</Text>
                 <Text style={styles.statValue}>
-                  {singleMatchStat['Total Shots']['away']}
+                  {(singleMatchStat &&
+                    singleMatchStat['Total Shots']['away']) ||
+                    0}
                 </Text>
               </View>
               <View style={styles.statsRow}>
                 <Text style={styles.statValue}>
-                  {singleMatchStat['Total Shots']['home']}
+                  {(singleMatchStat &&
+                    singleMatchStat['Total Shots']['home']) ||
+                    0}
                 </Text>
                 <Text style={styles.statDesc}>Shots on Goal</Text>
                 <Text style={styles.statValue}>
-                  {singleMatchStat['Total Shots']['away']}
+                  {(singleMatchStat &&
+                    singleMatchStat['Total Shots']['away']) ||
+                    0}
                 </Text>
               </View>
               <View style={styles.statsRow}>
                 <Text style={styles.statValue}>
-                  {singleMatchStat['Passes %']['home']}
+                  {(singleMatchStat && singleMatchStat['Passes %']['home']) ||
+                    0}
                 </Text>
                 <Text style={styles.statDesc}>Passes</Text>
                 <Text style={styles.statValue}>
-                  {singleMatchStat['Passes %']['away']}
+                  {(singleMatchStat && singleMatchStat['Passes %']['away']) ||
+                    0}
                 </Text>
               </View>
               <View style={styles.statsRow}>
                 <Text style={styles.statValue}>
-                  {singleMatchStat['Fouls']['home']}
+                  {(singleMatchStat && singleMatchStat['Fouls']['home']) || 0}
                 </Text>
                 <Text style={styles.statDesc}>Fouls</Text>
                 <Text style={styles.statValue}>
-                  {singleMatchStat['Fouls']['away']}
+                  {(singleMatchStat && singleMatchStat['Fouls']['away']) || 0}
                 </Text>
               </View>
               <View style={styles.statsRow}>
                 <Text style={styles.statValue}>
-                  {singleMatchStat['Yellow Cards']['home']}
+                  {(singleMatchStat &&
+                    singleMatchStat['Yellow Cards']['home']) ||
+                    0}
                 </Text>
                 <Text style={styles.statDesc}>Yellow Cards</Text>
                 <Text style={styles.statValue}>
-                  {singleMatchStat['Yellow Cards']['away']}
+                  {(singleMatchStat &&
+                    singleMatchStat['Yellow Cards']['away']) ||
+                    0}
                 </Text>
               </View>
               <View style={styles.statsRow}>
                 <Text style={styles.statValue}>
-                  {singleMatchStat['Goalkeeper Saves']['home']}
+                  {(singleMatchStat &&
+                    singleMatchStat['Goalkeeper Saves']['home']) ||
+                    0}
                 </Text>
                 <Text style={styles.statDesc}>Saves</Text>
                 <Text style={styles.statValue}>
-                  {singleMatchStat['Goalkeeper Saves']['away']}
+                  {(singleMatchStat &&
+                    singleMatchStat['Goalkeeper Saves']['away']) ||
+                    0}
                 </Text>
               </View>
               <View style={styles.statsRow}>
                 <Text style={styles.statValue}>
-                  {singleMatchStat['Offsides']['home']}
+                  {(singleMatchStat && singleMatchStat['Offsides']['home']) ||
+                    0}
                 </Text>
                 <Text style={styles.statDesc}>Offsides</Text>
                 <Text style={styles.statValue}>
-                  {singleMatchStat['Offsides']['away']}
+                  {(singleMatchStat && singleMatchStat['Offsides']['away']) ||
+                    0}
                 </Text>
               </View>
             </View>

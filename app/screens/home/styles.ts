@@ -42,6 +42,18 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     fontFamily: 'ubuntu',
     color: '#4f525d'
+  },
+  upcomingText2: {
+    fontSize: getHeight(18),
+    fontWeight: '500',
+    fontFamily: 'ubuntu',
+    color: '#4f525d',
+    marginLeft: getWidth(20)
+  },
+  activityIndicator: {
+    alignSelf: 'center',
+    position: 'absolute',
+    top: getHeight(250)
   }
 })
 

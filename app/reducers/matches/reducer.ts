@@ -1,8 +1,8 @@
 export const initialState = {
   live: [],
   upcoming: [],
-  liveLoading: false,
   upcomingLoading: false,
+  liveLoading: false,
   liveError: null,
   upcomingError: null,
   singleMatch: null,
@@ -11,7 +11,7 @@ export const initialState = {
   singleMatchStatLoading: false,
   singleMatchEvents: null,
   singleMatchEventsLoading: false,
-  league: 'English Premier League'
+  league: 754
 }
 
 type actionType = {
@@ -45,6 +45,12 @@ const MatchesReducer = (state: object = initialState, action: actionType) => {
         singleMatchEvents: action.data,
         singleMatchEventsLoading: false
       }
+    case 'CHANGE_LEAGUE':
+      return { ...state, league: action.data }
+    case 'UPCOMING_LOADING':
+      return { ...state, upcomingLoading: true }
+    case 'GET_UPCOMING_MATCHES':
+      return { ...state, upcoming: action.data, upcomingLoading: false }
     default:
       return state
   }
