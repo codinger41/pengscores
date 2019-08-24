@@ -111,8 +111,10 @@ const styles = StyleSheet.create({
   stats: {
     width: getWidth(330),
     marginTop: getHeight(20),
-    height: getHeight(230),
+    height: getHeight(235),
     borderRadius: getWidth(20),
+    alignItems: 'center',
+    paddingVertical: getHeight(5),
     backgroundColor: '#3e5bde'
   },
   statsRow: {
@@ -147,6 +149,7 @@ const styles = StyleSheet.create({
   modal: {},
   section: {
     // marginVertical: getHeight(15)
+    // height: getHeight(400)
   },
   sectionTitle: {
     color: '#000000',

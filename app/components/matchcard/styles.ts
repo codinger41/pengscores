@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     marginHorizontal: getWidth(15),
     paddingHorizontal: getWidth(15),
     width: getWidth(350),
-    height: getHeight(120),
+    height: getHeight(130),
     alignSelf: 'center',
     borderRadius: getWidth(15),
     justifyContent: 'space-between',
@@ -43,6 +43,18 @@ const styles = StyleSheet.create({
   clubs: {
     marginTop: getHeight(100)
   },
+  logo: {
+    height: getHeight(60),
+    width: getWidth(60),
+    resizeMode: 'contain'
+  },
+  column: {
+    flexDirection: 'column',
+    height: getHeight(90),
+    width: getWidth(120),
+    alignItems: 'center',
+    justifyContent: 'space-between'
+  },
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -69,43 +81,11 @@ const styles = StyleSheet.create({
     opacity: 0.2
   },
   image: {},
-  oddsRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between'
-  },
-  oddPill: {
-    width: getWidth(100),
-    height: getHeight(40),
-    marginVertical: getHeight(4),
-    backgroundColor: '#f4f6fa',
-    borderRadius: getWidth(15),
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: getHeight(27),
-    alignItems: 'center'
-  },
-  oddPill2: {
-    width: getWidth(100),
-    height: getHeight(40),
-    marginVertical: getHeight(4),
-    backgroundColor: '#f67f4f',
-    borderRadius: getWidth(15),
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: getHeight(27),
-    alignItems: 'center'
-  },
-  oddTitle: {
-    color: '#c3c4ca',
-    fontWeight: 'bold'
-  },
-  oddValue: {
+  date: {
     color: '#3353dd',
-    fontWeight: 'bold'
-  },
-  oddValue2: {
-    color: '#FFFFFF',
-    fontWeight: 'bold'
+    fontSize: getHeight(15),
+    fontFamily: 'ubuntu',
+    alignSelf: 'center'
   }
 })
 

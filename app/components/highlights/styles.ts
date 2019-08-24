@@ -6,17 +6,16 @@ const styles = StyleSheet.create({
     paddingHorizontal: getWidth(15),
     alignSelf: 'center',
     width: getWidth(365),
-    height: getHeight(340),
     borderRadius: getWidth(15),
     paddingVertical: getHeight(20),
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 3
+      height: 1
     },
     shadowOpacity: 0.29,
-    shadowRadius: 4.65,
-    elevation: 7
+    shadowRadius: 1.65,
+    elevation: 2
   },
   eventCardHome: {
     width: getWidth(160),

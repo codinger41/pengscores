@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Image } from 'react-native'
+import { View, ScrollView, Text, Image } from 'react-native'
 import { getFirstWord } from '../../utils/helpers'
 import styles from './styles'
 
@@ -24,11 +24,10 @@ const Icons = {
 const HighLights = ({ home, away, events }: HighlightsProps) => {
   const getIcon = (eventType: string, detail: string) => {
     if (eventType !== 'Card') return Icons[eventType]
-
     return Icons[detail]
   }
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       {events &&
         events.map(event => (
           <React.Fragment
@@ -56,7 +55,7 @@ const HighLights = ({ home, away, events }: HighlightsProps) => {
             )}
           </React.Fragment>
         ))}
-    </View>
+    </ScrollView>
   )
 }
 

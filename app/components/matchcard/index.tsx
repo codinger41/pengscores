@@ -1,8 +1,7 @@
 import React from 'react'
-import { View, TouchableOpacity, Text } from 'react-native'
+import { View, TouchableOpacity, Text, Image } from 'react-native'
 import { withNavigation } from 'react-navigation'
-import { getFirstWord } from '../../utils/helpers'
-import Odds from '../odds'
+import { getFirstWord, getDate } from '../../utils/helpers'
 import styles from './styles'
 
 const image = require('../../../assets/epl.png')
@@ -21,16 +20,22 @@ const MatchCard = ({ navigation, match }: MatchCardProps) => {
         navigation.navigate('MatchDetails', { fixtureId: match.fixture_id })
       }
     >
+      <Text style={styles.date}>{getDate(match.event_date)}</Text>
       <View style={styles.row}>
-        <Text style={styles.club}>
-          {getFirstWord(match.homeTeam.team_name)}
-        </Text>
+        <View style={styles.column}>
+          <Image style={styles.logo} source={{ uri: match.homeTeam.logo }} />
+          <Text style={styles.club}>
+            {getFirstWord(match.homeTeam.team_name)}
+          </Text>
+        </View>
         <Text style={styles.vs}>VS</Text>
-        <Text style={styles.club}>
-          {getFirstWord(match.awayTeam.team_name)}
-        </Text>
+        <View style={styles.column}>
+          <Image style={styles.logo} source={{ uri: match.awayTeam.logo }} />
+          <Text style={styles.club}>
+            {getFirstWord(match.awayTeam.team_name)}
+          </Text>
+        </View>
       </View>
-      <Odds />
     </TouchableOpacity>
   )
 }
