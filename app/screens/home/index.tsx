@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react'
-import { Text, View, ScrollView } from 'react-native'
+import { Text, View, ScrollView, FlatList } from 'react-native'
 import { ActivityIndicator } from 'react-native-paper'
 import Header from '../../components/header'
 import MatchesContext from '../../contexts/matches'
@@ -57,19 +57,21 @@ const Home = ({ navigation }: ScreenProp) => {
         )}
         <ScrollView contentContainerStyle={styles.upcomingmatches}>
           <View style={styles.row}>
-            <Text style={styles.upcomingText}>Upcoming Matches</Text>
+            <Text style={styles.upcomingText}>All Matches This Season</Text>
           </View>
           {upcomingLoading && (
             <ActivityIndicator size="large" color="#3353dd" />
           )}
-          {upcoming &&
-            upcoming.map(match => (
-              <MatchCard
-                navigation={navigation}
-                key={match.fixture_id}
-                match={match}
-              />
-            ))}
+          {upcoming && (
+            <FlatList
+              data={upcoming}
+              keyExtractor={(i, t) => t.toString()}
+              removeClippedSubviews
+              renderItem={({ item, index }) => (
+                <MatchCard navigation={navigation} match={item} />
+              )}
+            />
+          )}
         </ScrollView>
       </ScrollView>
     </View>

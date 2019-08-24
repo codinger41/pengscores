@@ -3,11 +3,12 @@ import { Text, View, ImageBackground, Image } from 'react-native'
 import Modalize from 'react-native-modalize'
 import { ActivityIndicator } from 'react-native-paper'
 import Header from '../../components/header'
-import Odds from '../../components/odds'
 import HighLights from '../../components/highlights'
+import Stats from '../../components/stats'
 import MatchContext from '../../contexts/matches'
 import styles from './styles'
 import { getHeight } from '../../utils/styles'
+import { getDate } from '../../utils/helpers'
 
 const background = require('../../../assets/epl.png')
 
@@ -38,6 +39,16 @@ const Home = ({ navigation }: ScreenProp) => {
     getMatchEvents(fixtureId)
   }, [fixtureId])
 
+  let matchHasNotStarted
+
+  if (singleMatch) {
+    if (singleMatch.status === 'Not Started') {
+      matchHasNotStarted = true
+    } else if (singleMatch.status === 'Time To Be Defined') {
+      matchHasNotStarted = true
+    }
+  }
+
   return (
     <View style={styles.container}>
       <Header
@@ -59,11 +70,18 @@ const Home = ({ navigation }: ScreenProp) => {
           />
         ) : (
           <View style={styles.imgbackground}>
-            <View style={styles.livePill}>
-              <Text style={styles.liveText}>LIVE {singleMatch.elapsed}'</Text>
-            </View>
+            {!matchHasNotStarted && (
+              <View style={styles.livePill}>
+                <Text style={styles.liveText}>LIVE {singleMatch.elapsed}'</Text>
+              </View>
+            )}
             <Text style={styles.leagueText}>{singleMatch.round}</Text>
             <Text style={styles.weekText}>{singleMatch.status}</Text>
+            {matchHasNotStarted && (
+              <Text style={styles.dateText}>
+                {getDate(singleMatch.event_date)}
+              </Text>
+            )}
             <View style={styles.row}>
               <View style={styles.column}>
                 <Image
@@ -74,9 +92,13 @@ const Home = ({ navigation }: ScreenProp) => {
                   {singleMatch.homeTeam.team_name}
                 </Text>
               </View>
-              <Text style={styles.scores}>
-                {singleMatch.goalsHomeTeam} : {singleMatch.goalsAwayTeam}
-              </Text>
+              {matchHasNotStarted ? (
+                <Text style={styles.scores}>VS</Text>
+              ) : (
+                <Text style={styles.scores}>
+                  {singleMatch.goalsHomeTeam} : {singleMatch.goalsAwayTeam}
+                </Text>
+              )}
               <View style={styles.column}>
                 <Image
                   style={styles.logo}
@@ -87,104 +109,7 @@ const Home = ({ navigation }: ScreenProp) => {
                 </Text>
               </View>
             </View>
-            <View style={styles.stats}>
-              <View style={styles.statsRow}>
-                <Text style={styles.statValue}>
-                  {(singleMatchStat &&
-                    singleMatchStat['Ball Possession']['home']) ||
-                    0}
-                </Text>
-                <Text style={styles.statDesc}>Possession</Text>
-                <Text style={styles.statValue}>
-                  {(singleMatchStat &&
-                    singleMatchStat['Ball Possession']['away']) ||
-                    0}
-                </Text>
-              </View>
-              <View style={styles.statsRow}>
-                <Text style={styles.statValue}>
-                  {(singleMatchStat &&
-                    singleMatchStat['Total Shots']['home']) ||
-                    0}
-                </Text>
-                <Text style={styles.statDesc}>Shots</Text>
-                <Text style={styles.statValue}>
-                  {(singleMatchStat &&
-                    singleMatchStat['Total Shots']['away']) ||
-                    0}
-                </Text>
-              </View>
-              <View style={styles.statsRow}>
-                <Text style={styles.statValue}>
-                  {(singleMatchStat &&
-                    singleMatchStat['Total Shots']['home']) ||
-                    0}
-                </Text>
-                <Text style={styles.statDesc}>Shots on Goal</Text>
-                <Text style={styles.statValue}>
-                  {(singleMatchStat &&
-                    singleMatchStat['Total Shots']['away']) ||
-                    0}
-                </Text>
-              </View>
-              <View style={styles.statsRow}>
-                <Text style={styles.statValue}>
-                  {(singleMatchStat && singleMatchStat['Passes %']['home']) ||
-                    0}
-                </Text>
-                <Text style={styles.statDesc}>Passes</Text>
-                <Text style={styles.statValue}>
-                  {(singleMatchStat && singleMatchStat['Passes %']['away']) ||
-                    0}
-                </Text>
-              </View>
-              <View style={styles.statsRow}>
-                <Text style={styles.statValue}>
-                  {(singleMatchStat && singleMatchStat['Fouls']['home']) || 0}
-                </Text>
-                <Text style={styles.statDesc}>Fouls</Text>
-                <Text style={styles.statValue}>
-                  {(singleMatchStat && singleMatchStat['Fouls']['away']) || 0}
-                </Text>
-              </View>
-              <View style={styles.statsRow}>
-                <Text style={styles.statValue}>
-                  {(singleMatchStat &&
-                    singleMatchStat['Yellow Cards']['home']) ||
-                    0}
-                </Text>
-                <Text style={styles.statDesc}>Yellow Cards</Text>
-                <Text style={styles.statValue}>
-                  {(singleMatchStat &&
-                    singleMatchStat['Yellow Cards']['away']) ||
-                    0}
-                </Text>
-              </View>
-              <View style={styles.statsRow}>
-                <Text style={styles.statValue}>
-                  {(singleMatchStat &&
-                    singleMatchStat['Goalkeeper Saves']['home']) ||
-                    0}
-                </Text>
-                <Text style={styles.statDesc}>Saves</Text>
-                <Text style={styles.statValue}>
-                  {(singleMatchStat &&
-                    singleMatchStat['Goalkeeper Saves']['away']) ||
-                    0}
-                </Text>
-              </View>
-              <View style={styles.statsRow}>
-                <Text style={styles.statValue}>
-                  {(singleMatchStat && singleMatchStat['Offsides']['home']) ||
-                    0}
-                </Text>
-                <Text style={styles.statDesc}>Offsides</Text>
-                <Text style={styles.statValue}>
-                  {(singleMatchStat && singleMatchStat['Offsides']['away']) ||
-                    0}
-                </Text>
-              </View>
-            </View>
+            <Stats stats={singleMatchStat} />
           </View>
         )}
       </ImageBackground>

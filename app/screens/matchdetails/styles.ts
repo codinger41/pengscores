@@ -84,6 +84,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: getHeight(17)
   },
+  dateText: {
+    color: '#ffffff',
+    fontWeight: 'bold',
+    fontSize: getHeight(13),
+    marginVertical: getHeight(10)
+  },
   logo: {
     height: getHeight(80),
     width: getWidth(120),

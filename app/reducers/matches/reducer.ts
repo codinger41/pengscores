@@ -11,7 +11,7 @@ export const initialState = {
   singleMatchStatLoading: false,
   singleMatchEvents: null,
   singleMatchEventsLoading: false,
-  league: 754
+  league: 524
 }
 
 type actionType = {

@@ -8,7 +8,6 @@ const image = require('../../../assets/epl.png')
 
 type MatchCardProps = {
   match: any
-  key: number
 } & ScreenProp
 
 const MatchCard = ({ navigation, match }: MatchCardProps) => {

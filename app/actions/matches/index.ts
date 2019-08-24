@@ -36,6 +36,12 @@ export const getSingleMatchStats = async (
   dispatch({ type: 'SINGLE_MATCH_STAT_LOADING' })
   try {
     const { data } = await axios.get(`/statistics/fixture/${fixture_id}`)
+    if (Array.isArray(data.api.statistics)) {
+      return dispatch({
+        type: 'GET_SINGLE_MATCH_STAT',
+        data: null
+      })
+    }
     return dispatch({
       type: 'GET_SINGLE_MATCH_STAT',
       data: data.api.statistics

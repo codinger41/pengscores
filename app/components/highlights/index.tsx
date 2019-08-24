@@ -40,12 +40,12 @@ const HighLights = ({ home, away, events }: HighlightsProps) => {
                   source={getIcon(event.type, event.detail)}
                 />
                 <Text style={styles.player}>{getFirstWord(event.player)}</Text>
-                <Text style={styles.time}>{event.elapsed}</Text>
+                <Text style={styles.time}>{event.elapsed}'</Text>
               </View>
             )}
             {event.teamName === away && (
               <View style={styles.eventCardAway}>
-                <Text style={styles.time}>{event.elapsed}</Text>
+                <Text style={styles.time}>{event.elapsed}'</Text>
                 <Text style={styles.player}>{getFirstWord(event.player)}</Text>
                 <Image
                   style={styles.image}

@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     marginVertical: getHeight(10)
   },
   upcomingText: {
-    fontSize: getHeight(22),
+    fontSize: getHeight(18),
     fontWeight: '500',
     fontFamily: 'ubuntu',
     color: '#4f525d'
