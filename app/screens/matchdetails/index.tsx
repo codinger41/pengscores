@@ -1,5 +1,12 @@
-import React, { useEffect, useContext } from 'react'
-import { Text, View, ImageBackground, Image } from 'react-native'
+import React, { useEffect, useContext, useState } from 'react'
+import {
+  Text,
+  View,
+  ImageBackground,
+  Image,
+  RefreshControl,
+  ScrollView
+} from 'react-native'
 import Modalize from 'react-native-modalize'
 import { ActivityIndicator } from 'react-native-paper'
 import Header from '../../components/header'
@@ -14,6 +21,7 @@ import { getDate } from '../../utils/helpers'
 const background = require('../../../assets/epl.png')
 
 const Home = ({ navigation }: ScreenProp) => {
+  const [refreshing, setRefresh] = useState(false)
   const context: any = useContext(MatchContext)
   const {
     state: {
@@ -53,6 +61,14 @@ const Home = ({ navigation }: ScreenProp) => {
     }
   }
 
+  const refresh = () => {
+    setRefresh(true)
+    getMatchDetails(fixtureId)
+    getMatchStat(fixtureId)
+    getMatchEvents(fixtureId)
+    setRefresh(false)
+  }
+
   return (
     <View style={styles.container}>
       <Header
@@ -73,7 +89,16 @@ const Home = ({ navigation }: ScreenProp) => {
             style={{ alignSelf: 'center' }}
           />
         ) : (
-          <View style={styles.imgbackground}>
+          <ScrollView
+            refreshControl={
+              <RefreshControl
+                refreshing={refreshing}
+                onRefresh={() => refresh()}
+              />
+            }
+            // style={styles.imgbackground}
+            contentContainerStyle={styles.imgbackground}
+          >
             {!matchHasNotStarted && !matchHasFinished && (
               <View style={styles.livePill}>
                 <Text style={styles.liveText}>LIVE {singleMatch.elapsed}'</Text>
@@ -114,7 +139,7 @@ const Home = ({ navigation }: ScreenProp) => {
               </View>
             </View>
             <Stats stats={singleMatchStat} />
-          </View>
+          </ScrollView>
         )}
       </ImageBackground>
       <Banner style={styles.banner} />

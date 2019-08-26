@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "football",
-    "slug": "football",
+    "name": "Pengscores",
+    "slug": "Pengscores",
     "privacy": "public",
     "sdkVersion": "34.0.0",
     "platforms": [
@@ -27,7 +27,7 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "com.olamilekan.footbally"
+      "package": "com.olamilekan.pengscores"
     },
     "androidStatusBar": {
       "barStyle": "light-content",

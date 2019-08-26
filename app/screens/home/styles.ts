@@ -3,7 +3,7 @@ import { getHeight, getWidth } from '../../utils/styles'
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
     backgroundColor: '#f4f6fa'
     // backgroundColor: '#e2e5eb'
   },

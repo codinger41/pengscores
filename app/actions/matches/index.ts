@@ -1,7 +1,11 @@
 import axios from '../../utils/axios'
 
-export const getLiveMatches = async (dispatch: Function, league_id) => {
-  dispatch({ type: 'LIVE_MATCHES_LOADING' })
+export const getLiveMatches = async (
+  dispatch: Function,
+  league_id,
+  type: string = 'load'
+) => {
+  type === 'load' ? dispatch({ type: 'LIVE_MATCHES_LOADING' }) : {}
   try {
     const { data } = await axios.get(`/fixtures/live/${league_id}`)
     return dispatch({
@@ -15,9 +19,10 @@ export const getLiveMatches = async (dispatch: Function, league_id) => {
 
 export const getSingleMatch = async (
   dispatch: Function,
-  fixture_id: number
+  fixture_id: number,
+  type: string = 'load'
 ) => {
-  dispatch({ type: 'SINGLE_MATCH_LOADING' })
+  type === 'load' ? dispatch({ type: 'SINGLE_MATCH_LOADING' }) : {}
   try {
     const { data } = await axios.get(`/fixtures/id/${fixture_id}`)
     return dispatch({

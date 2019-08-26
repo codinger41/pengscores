@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     opacity: 0.1
   },
   imgbackground: {
-    flex: 0.5,
+    // flex: 0.5,
     paddingHorizontal: getWidth(20),
     alignItems: 'center'
   },

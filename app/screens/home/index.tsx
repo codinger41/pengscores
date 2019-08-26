@@ -1,5 +1,5 @@
-import React, { useContext, useEffect } from 'react'
-import { Text, View, ScrollView, FlatList } from 'react-native'
+import React, { useContext, useEffect, useState } from 'react'
+import { Text, View, ScrollView, FlatList, RefreshControl } from 'react-native'
 import { ActivityIndicator } from 'react-native-paper'
 import Header from '../../components/header'
 import MatchesContext from '../../contexts/matches'
@@ -10,21 +10,34 @@ import Banner from '../../components/admob'
 import styles from './styles'
 
 const Home = ({ navigation }: ScreenProp) => {
+  const [refreshing, setRefresh] = useState(false)
+
   const context: any = useContext(MatchesContext)
   const {
     matchesReducer: { live, liveLoading, upcoming, upcomingLoading, league }
   } = context
 
   useEffect(() => {
-    context.getLiveMatches(league)
-    context.getUpcomingMatches(league)
+    context.getLiveMatches(league, 'load')
+    context.getUpcomingMatches(league, 'load')
   }, [league])
+
+  const refresh = () => {
+    setRefresh(true)
+    context.getLiveMatches(league, 'refresh')
+    context.getUpcomingMatches(league, 'refresh')
+    setRefresh(false)
+  }
 
   return (
     <View style={styles.container}>
       <Header title="Home" leftIcon="grid" onPressLeft={() => {}} />
       <Banner />
-      <ScrollView>
+      <ScrollView
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={() => refresh()} />
+        }
+      >
         <View style={styles.titleContainer}>
           <Text style={styles.titleText}>Today</Text>
           <Text style={styles.titleBody}>Football Matches</Text>
